@@ -1,0 +1,11 @@
+#calc {
+    width: 400px;
+    height: 500px;
+    background-color: gray;
+    padding: 30px;
+}
+
+#display {
+    background-color: #fff;
+    padding: 1px;
+}
