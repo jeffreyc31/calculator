@@ -1,5 +1,5 @@
 #calc {
-    width: 400px;
+    width: 600px;
     height: 500px;
     background-color: gray;
     padding: 30px;
@@ -8,4 +8,36 @@
 #display {
     background-color: #fff;
     padding: 1px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.misc {
+    width: 37.5px;
+    height: 75px;
+}
+
+.number,
+.ops {
+    width: 75px;
+    height: 75px;
+}
+
+.other {
+    width: 75px;
+}
+
+#operate {
+    display: flex;
+    flex-direction: column;
+}
+
+#nums {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
 }
