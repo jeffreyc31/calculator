@@ -10,8 +10,9 @@ function operate(a, b, operator) {
         case "x":
             answer = a * b;
             break;
-        case "&div":
+        case "/":
             answer = a / b;
             break;
     }
+    return answer;
 }
