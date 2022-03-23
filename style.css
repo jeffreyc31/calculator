@@ -1,19 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
 #calc {
-    width: 600px;
-    height: 500px;
+    width: 370px;
+    height: 400px;
     background-color: gray;
     padding: 30px;
+    margin: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #display {
     background-color: #fff;
-    padding: 1px;
+    padding: 0px;
+    width: 325px;
 }
 
 #buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 325px;
+    padding: 10px 0px;
 }
 
 .misc {
@@ -34,6 +47,7 @@
 #operate {
     display: flex;
     flex-direction: column;
+    margin-left: auto;
 }
 
 #nums {
