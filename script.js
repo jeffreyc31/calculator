@@ -16,3 +16,15 @@ function operate(a, b, operator) {
     }
     return answer;
 }
+
+let newDisplay = document.getElementById("interface");
+let value = newDisplay.innerText;
+
+const nums = document.querySelectorAll('.number')
+nums.forEach(num => {
+    num.addEventListener('click', function displayNum(e) {
+        let newNum = num.innerText;
+        value = `${value}${newNum}`;
+        newDisplay.innerText = value;
+    })
+})
