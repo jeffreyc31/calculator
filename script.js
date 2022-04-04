@@ -54,12 +54,20 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
     let currentDisplay = newDisplay.innerText;
     let lastChar = currentDisplay.charAt(currentDisplay.length - 1);
 
+    if (currentDisplay.length > 21) {
+        newDisplay.innerText = "Error";
+        buttons.forEach(button => button.disabled = true);
+        document.getElementById("clear").disabled = false;
+        return;
+    }
+
     if (newNum == 'C') {
         newDisplay.innerText = '';
         firstOperand = undefined;
         secondOperand = undefined;
         operation = undefined;
         value = '';
+        buttons.forEach(button => button.disabled = false);
         return;
     } else if (calculated == true && checkOperation(newNum) == false) {
         newDisplay.innerText = newNum;
