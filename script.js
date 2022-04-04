@@ -2,9 +2,13 @@ let newDisplay = document.getElementById("interface");
 let value = newDisplay.innerText;
 const buttons = document.querySelectorAll('button');
 let operation = undefined;
+//check to see if operands have decimal, disables button when true
 let hasDot = false;
 let firstOperand = undefined;
 let secondOperand = undefined;
+//check to see if number on display was a calculation; if user presses number when true and with no operation, clears screen
+let calculated = false;
+
 
 //takes two parameters first & second and performs operation (operator) onto them
 function operate(first, second, operator) {
@@ -45,9 +49,10 @@ function checkOperation(input) {
 //add event listener to each button on calculator
 buttons.forEach(button => button.addEventListener('click', function displayNum(e) {
     let newNum = button.innerText;
+    let option = 0;
+    let answer = undefined;
     let currentDisplay = newDisplay.innerText;
     let lastChar = currentDisplay.charAt(currentDisplay.length - 1);
-    let option = 0;
 
     if (newNum == 'C') {
         newDisplay.innerText = '';
@@ -55,7 +60,17 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
         secondOperand = undefined;
         operation = undefined;
         value = '';
-    } else {
+        return;
+    } else if (calculated == true && checkOperation(newNum) == false) {
+        newDisplay.innerText = newNum;
+        firstOperand = undefined;
+        secondOperand = undefined;
+        operation = undefined;
+        value = '';
+        calculated = false;
+    } else if (calculated == true && checkOperation(newNum) == true) {
+        calculated = false;
+    } {
 
         //returns if user tries to input an operator before inputting number
         if (value == '' && checkOperation(newNum) == true) {
@@ -101,6 +116,9 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
             option = 4;
         }
 
+
+
+
         switch (option) {
             case 0:
                 if (currentDisplay.includes('.') == true && newNum == '.') {
@@ -124,6 +142,7 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
                 } else if (hasDot == false && newNum == '.') {
                     hasDot = true;
                 }
+
                 if (secondOperand == undefined) {
                     secondOperand = newNum;
                 } else {
@@ -135,8 +154,8 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
                 break;
 
             case 3:
-
-                firstOperand = operate(firstOperand, secondOperand, operation);
+                answer = operate(firstOperand, secondOperand, operation);
+                firstOperand = answer;
                 newDisplay.innerText = `${firstOperand}`;
                 if (checkOperation(newNum) == true) {
                     operation = '';
@@ -145,10 +164,12 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
                 }
                 secondOperand = undefined;
                 hasDot = false;
+                calculated = true;
                 break;
 
             case 4:
-                firstOperand = operate(firstOperand, secondOperand, operation);
+                answer = operate(firstOperand, secondOperand, operation);
+                firstOperand = answer;
                 newDisplay.innerText = `${firstOperand}`;
                 if (checkOperation(newNum) == true) {
                     operation = newNum;
@@ -160,4 +181,5 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
                 break;
         }
     }
+    console.log(option);
 }))

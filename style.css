@@ -36,7 +36,7 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     width: 325px;
-    padding: 10px 0px;
+    padding: 25px 0px 0px 0px;
 }
 
 .misc {
