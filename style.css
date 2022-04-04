@@ -3,16 +3,23 @@ body {
     justify-content: center;
 }
 
+button {
+    border-radius: 5px;
+    border: 2px solid rgb(27, 28, 78);
+}
+
 #calc {
     width: 370px;
     height: 400px;
-    background-color: gray;
+    background-color: rgb(27, 28, 78);
     padding: 30px;
     margin: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 5px;
 }
 
 #display {
@@ -20,9 +27,11 @@ body {
     padding: 0px;
     width: 325px;
     height: 68px;
+    border-radius: 5px;
 }
 
 #buttons {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -55,4 +64,20 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 250px;
+}
+
+.ops {
+    background-color: rgb(224, 223, 223);
+}
+
+.number {
+    background-color: rgb(251, 251, 251);
+}
+
+#clear {
+    background-color: darkred;
+}
+
+h2 {
+    padding: 0px 15px;
 }
