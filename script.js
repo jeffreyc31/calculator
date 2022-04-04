@@ -10,7 +10,7 @@ let secondOperand = undefined;
 let calculated = false;
 
 
-//takes two parameters first & second and performs operation (operator) onto them
+//takes two parameters first & second and performs operation (operator) onto them, rounds to the 6th decimal if necessary
 function operate(first, second, operator) {
     let a = parseFloat(first);
     let b = parseFloat(second);
@@ -33,6 +33,7 @@ function operate(first, second, operator) {
             }
             break;
     }
+    answer = answer.toFixed(6);
     return answer;
 }
 
