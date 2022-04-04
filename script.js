@@ -22,12 +22,15 @@ function operate(first, second, operator) {
             answer = a * b;
             break;
         case "/":
-            answer = a / b;
+            if (b == 0) {
+                answer = "Error"
+            } else {
+                answer = a / b;
+            }
             break;
     }
     return answer;
 }
-
 
 //function to check if the button clicked is an operation
 function checkOperation(input) {
@@ -54,17 +57,10 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
         value = '';
     } else {
 
-
-
         //returns if user tries to input an operator before inputting number
         if (value == '' && checkOperation(newNum) == true) {
             return;
         }
-
-        //returns if user tries to use multiple decimal points
-        // if (currentDisplay.includes('.') == true && newNum == '.') {
-        //     return;
-        // }
 
         //returns if user tries to input consecutive operators
         if (checkOperation(newNum) == true && checkOperation(lastChar) == true) {
@@ -105,13 +101,11 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
             option = 4;
         }
 
-
         switch (option) {
             case 0:
                 if (currentDisplay.includes('.') == true && newNum == '.') {
                     return;
                 }
-
                 value = `${value}${newNum}`;
                 newDisplay.innerText = value;
                 break;
@@ -130,7 +124,6 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
                 } else if (hasDot == false && newNum == '.') {
                     hasDot = true;
                 }
-
                 if (secondOperand == undefined) {
                     secondOperand = newNum;
                 } else {
@@ -142,9 +135,7 @@ buttons.forEach(button => button.addEventListener('click', function displayNum(e
                 break;
 
             case 3:
-                if (secondOperand == undefined) {
-                    secondOperand = 0;
-                }
+
                 firstOperand = operate(firstOperand, secondOperand, operation);
                 newDisplay.innerText = `${firstOperand}`;
                 if (checkOperation(newNum) == true) {
