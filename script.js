@@ -15,15 +15,40 @@ function operate(first, second, operator) {
     let a = parseFloat(first);
     let b = parseFloat(second);
     let answer;
+    let stringNum;
     switch (operator) {
         case "+":
             answer = a + b;
+            stringNum = answer.toString();
+            if (stringNum.includes('.') == true) {
+                let decimals = stringNum.split('.');
+                console.log(decimals);
+                if (decimals[1].length > 6) {
+                    answer = answer.toFixed(6);
+                }
+            }
             break;
         case "-":
             answer = a - b;
+            stringNum = answer.toString();
+            if (stringNum.includes('.') == true) {
+                let decimals = stringNum.split('.');
+                console.log(decimals);
+                if (decimals[1].length > 6) {
+                    answer = answer.toFixed(6);
+                }
+            }
             break;
         case "x":
             answer = a * b;
+            stringNum = answer.toString();
+            if (stringNum.includes('.') == true) {
+                let decimals = stringNum.split('.');
+                console.log(decimals);
+                if (decimals[1].length > 6) {
+                    answer = answer.toFixed(6);
+                }
+            }
             break;
         case "/":
             if (b == 0) {
@@ -31,9 +56,16 @@ function operate(first, second, operator) {
             } else {
                 answer = a / b;
             }
+            stringNum = answer.toString();
+            if (stringNum.includes('.') == true) {
+                let decimals = stringNum.split('.');
+                console.log(decimals);
+                if (decimals[1].length > 6) {
+                    answer = answer.toFixed(6);
+                }
+            }
             break;
     }
-    answer = answer.toFixed(6);
     return answer;
 }
 
